@@ -64,7 +64,7 @@ Bruno cli returns the following exit status codes:
 - `1` -- an assertion, test, or request in the executed collection failed
 - `2` -- the specified output directory does not exist
 - `3` -- the request chain seems to loop endlessly
-- `4` -- bru was called outside of a collection root directory
+- `4` -- bru was called outside a collection root directory
 - `5` -- the specified input file does not exist
 - `6` -- the specified environment does not exist
 - `7` -- the environment override was not a string or object
