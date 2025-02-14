@@ -4,6 +4,7 @@ const cors = require('cors');
 const formDataParser = require('./multipart/form-data-parser');
 const authRouter = require('./auth');
 const echoRouter = require('./echo');
+const graphQLRouter = require('./graphql');
 const xmlParser = require('./utils/xmlParser');
 const multipartRouter = require('./multipart');
 
@@ -28,6 +29,7 @@ formDataParser.init(app, express);
 app.use('/api/auth', authRouter);
 app.use('/api/echo', echoRouter);
 app.use('/api/multipart', multipartRouter);
+app.use('/graphql', graphQLRouter);
 
 app.get('/ping', function (req, res) {
   return res.send('pong');
