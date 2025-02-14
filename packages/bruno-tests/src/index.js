@@ -43,6 +43,21 @@ app.get('/query', function (req, res) {
   return res.json(req.query);
 });
 
+app.get('/html', function (req, res) {
+  let html = `
+  <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>title</title>
+  </head>
+  <body>
+    Keep Using Bruno!
+  </body>
+</html>`
+  return res.send(html);
+});
+
 app.get('/redirect-to-ping', function (req, res) {
   return res.redirect('/ping');
 });
