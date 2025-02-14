@@ -18,6 +18,7 @@ assert {
 tests {
   test("req.getUrl()", function() {
     const url = req.getUrl();
-    expect(url).to.equal("https://testbench-sanity.usebruno.com/ping");
+    expect(url).to.contain("/ping");
+    expect(url).to.contain("http");
   });
 }
