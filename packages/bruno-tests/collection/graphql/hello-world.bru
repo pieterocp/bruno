@@ -1,22 +1,19 @@
 meta {
-  name: spacex
+  name: bookx
   type: graphql
   seq: 1
 }
 
 post {
-  url: https://spacex-production.up.railway.app/
+  url: {{host}}/graphql/works
   body: graphql
   auth: none
 }
 
 body:graphql {
   {
-    company {
-      ceo
-    }
+    helloWorld
   }
-  
 }
 
 assert {
