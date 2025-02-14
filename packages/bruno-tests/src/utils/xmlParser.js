@@ -21,9 +21,9 @@ const xmlParser = () => {
           res.status(400).send('Invalid XML');
         }
       });
-    } else {
-      next();
     }
+
+    next();
   };
 };
 
