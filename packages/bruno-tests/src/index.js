@@ -58,6 +58,12 @@ app.get('/html', function (req, res) {
   return res.send(html);
 });
 
+app.get('/favicon', function (req, res) {
+  res.writeHead(200, {'Content-Type': 'image/x-icon'});
+  res.write('icon');
+  return res.end();
+});
+
 app.get('/redirect-to-ping', function (req, res) {
   return res.redirect('/ping');
 });
