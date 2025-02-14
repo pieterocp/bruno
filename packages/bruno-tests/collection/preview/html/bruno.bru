@@ -5,7 +5,7 @@ meta {
 }
 
 get {
-  url: https://www.usebruno.com
+  url: {{host}}/html
   body: none
   auth: none
 }
@@ -15,7 +15,7 @@ assert {
 }
 
 tests {
-  test("should return parsed xml", function() {
+  test("should return parsed html", function() {
     const headers = res.getHeaders();
     expect(headers['content-type']).to.eql("text/html; charset=utf-8");
   });
