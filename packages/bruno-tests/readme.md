@@ -24,7 +24,7 @@ cd collection
 node ../../bruno-cli/bin/bru.js run --env Local --output junit.xml --format junit
 
 # run collection against prod server hosted at https://testbench.usebruno.com
-node ../../bruno-cli/bin/bru.js run --env Prod --output junit.xml --format junit
+node --trace-deprecation ../../bruno-cli/bin/bru.js run --env Prod --output junit.xml --format junit
 ```
 
 ### License
