@@ -888,7 +888,7 @@ export const copyEnvironment = (name, baseEnvUid, collectionUid) => (dispatch, g
 
     const baseEnv = findEnvironmentInCollection(collection, baseEnvUid);
     if (!collection) {
-      return reject(new Error('Environmnent not found'));
+      return reject(new Error('Environment not found'));
     }
 
     ipcRenderer
