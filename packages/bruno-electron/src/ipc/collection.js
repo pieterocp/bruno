@@ -142,7 +142,7 @@ const registerRendererEventHandlers = (mainWindow, watcher, lastOpenedCollection
       // write the bruno.json to new dir
       await writeFile(path.join(dirPath, 'bruno.json'), cont);
 
-      // Now copy all the files with extension name .bru along with there dir
+      // Now copy all the files with extension name .bru along with their dir
       const files = searchForBruFiles(previousPath);
 
       for (const sourceFilePath of files) {
@@ -391,13 +391,13 @@ const registerRendererEventHandlers = (mainWindow, watcher, lastOpenedCollection
         // parentDirUnwatched = true;
 
         /**
-         * If it is windows OS
-         * And it is not WSL path (meaning its not linux running on windows using WSL)
-         * And it has sub directories
+         * If it is Windows OS
+         * And it is not WSL path (meaning it is not linux running on windows using WSL)
+         * And it has subdirectories
          * Only then we need to use the temp dir approach to rename the folder
          * 
-         * Windows OS would sometimes throw error when renaming a folder with sub directories
-         * This is a alternative approach to avoid that error
+         * Windows OS would sometimes throw error when renaming a folder with subdirectories
+         * This is an alternative approach to avoid that error
          */
         if (isWindowsOSAndNotWSLAndItemHasSubDirectories) {
           await fsExtra.copy(oldPath, tempDir);
