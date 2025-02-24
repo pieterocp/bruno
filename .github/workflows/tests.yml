@@ -81,15 +81,30 @@ jobs:
           npm run build --workspace=packages/bruno-converters
           npm run build --workspace=packages/bruno-requests
 
+      - name: Run local tests
+        timeout-minutes: 2 # in case xml gets stuck
+        continue-on-error: true # since this will fail
+        run: |
+          cd packages/bruno-tests &&
+          npm install &&
+          npm start &
+          sleep 5 &&
+          cd packages/bruno-tests/collection
+          npm install
+          node ../../bruno-cli/bin/bru.js run --env Local --output junit-local.xml --format junit
+
       - name: Run tests
+        continue-on-error: true # since this will fail until this has been deployed
         run: |
           cd packages/bruno-tests/collection
           npm install
           node ../../bruno-cli/bin/bru.js run --env Prod --output junit.xml --format junit
 
-      - name: Publish Test Report
+      - name: Publish Test Reports
         uses: EnricoMi/publish-unit-test-result-action@v2
         if: always()
         with:
-          files: packages/bruno-tests/collection/junit.xml
+          files: |
+            packages/bruno-tests/collection/junit.xml
+            packages/bruno-tests/collection/junit-local.xml
           comment_mode: always
