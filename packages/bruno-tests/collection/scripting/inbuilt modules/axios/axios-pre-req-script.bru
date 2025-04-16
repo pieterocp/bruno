@@ -17,17 +17,21 @@ script:pre-request {
   let mockUrl = "http://localhost:8080/api/echo" + "/json";
 
   try {
-    var response = await axios.post(mockUrl, {
-      "hello": "bruno"
-    });
+  // TODO add in a timeout to the req to keep local fast as
+//    var response = await axios.post(mockUrl, {
+//      "hello": "bruno"
+//    });
     var url = mockUrl
   } catch (e) {
     var response = await axios.post(realUrl, {
       "hello": "bruno"
     });
 
-    var url = realUrl
+    //var url = realUrl
   }
+
+  var url = mockUrl
+
   
   req.setBody(response.data);
   req.setMethod("POST");
