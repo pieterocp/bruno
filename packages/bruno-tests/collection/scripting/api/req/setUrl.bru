@@ -17,12 +17,12 @@ assert {
 }
 
 script:pre-request {
-  req.setUrl("http://localhost:8080/ping");
+  req.setUrl("http://localhost:8081/ping");
 }
 
 tests {
   test("req.setUrl()", function() {
     const url = req.getUrl();
-    expect(url).to.equal("http://localhost:8080/ping");
+    expect(url).to.equal("http://localhost:8081/ping");
   });
 }
