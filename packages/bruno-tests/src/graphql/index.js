@@ -43,16 +43,10 @@ router.use(bodyParser.json());  // This is crucial to parse the incoming JSON bo
 router.post('/should-work', expressMiddleware(graphqlHandler));
 
 router.post('/works', express.json(), function (req, res, next) {
-  reqBody = JSON.parse(req.body);
-  var query = graphqlHandler.query(reqBody.query);
-
-  console.log(query)
-  console.log(reqBody)
-
+  var query = graphqlHandler.query(req.body.query);
 
   query.then(
     (result) => {
-      console.log(result)
       return res.json(result)
     })
 });
