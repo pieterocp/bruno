@@ -5,7 +5,7 @@ meta {
 }
 
 get {
-  url: https://httpbin.org/digest-auth/auth/foo/passwd
+  url: {{auth-host}}/api/auth/digest-auth/auth
   body: none
   auth: digest
 }
