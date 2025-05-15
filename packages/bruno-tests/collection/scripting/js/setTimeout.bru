@@ -16,7 +16,7 @@ script:pre-request {
     setTimeout(() => {
       bru.setVar("test-js-set-timeout", "bruno");
       resolve();
-    }, 1000);
+    }, 2);
   });
   
   const v = bru.getVar("test-js-set-timeout");

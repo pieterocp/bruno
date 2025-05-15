@@ -5,7 +5,7 @@ We have a collection that sits in the `collection` directory.
 
 ### Test Server
 
-This will start the server on port 80 which exposes endpoints that the collection will hit.
+This will start the server on port 8080 which exposes some endpoints that the collection will hit.
 
 ```bash
 # install node dependencies

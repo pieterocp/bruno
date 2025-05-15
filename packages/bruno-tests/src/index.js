@@ -4,6 +4,7 @@ const cors = require('cors');
 const formDataParser = require('./multipart/form-data-parser');
 const authRouter = require('./auth');
 const echoRouter = require('./echo');
+const graphQLRouter = require('./graphql');
 const xmlParser = require('./utils/xmlParser');
 const multipartRouter = require('./multipart');
 
@@ -28,6 +29,7 @@ formDataParser.init(app, express);
 app.use('/api/auth', authRouter);
 app.use('/api/echo', echoRouter);
 app.use('/api/multipart', multipartRouter);
+app.use('/graphql', graphQLRouter);
 
 app.get('/ping', function (req, res) {
   return res.send('pong');
@@ -39,6 +41,27 @@ app.get('/headers', function (req, res) {
 
 app.get('/query', function (req, res) {
   return res.json(req.query);
+});
+
+app.get('/html', function (req, res) {
+  let html = `
+  <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>title</title>
+  </head>
+  <body>
+    Keep Using Bruno!
+  </body>
+</html>`
+  return res.send(html);
+});
+
+app.get('/favicon', function (req, res) {
+  res.writeHead(200, {'Content-Type': 'image/x-icon'});
+  res.write('icon');
+  return res.end();
 });
 
 app.get('/redirect-to-ping', function (req, res) {
